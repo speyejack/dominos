@@ -19,3 +19,24 @@ def reverse_tuple(tup):
 def filter_dominos(dominos, num):
 	return tuple(filter(lambda x: num in x, dominos))
 
+## Parses the board string into domino tuples
+#
+#  Each single domino is a tuple of one element.
+#  Each double domino is a 2 element tuple with
+#  either the original element or original and -1.
+#  This depends if the double has been played on.
+#  
+#  @param board_str to parse
+#  @return a list of dominos
+def board_parser(board_str):
+	def _item_parse(item):
+		num = int(item[0])
+		if len(item) == 1:
+			return (num,)
+		elif item[1] == "_":
+			return (num, -1)
+		else:
+			return (num,num)
+			
+	return tuple([_item_parse(item.strip()) for item in board_str.split(",")])
+

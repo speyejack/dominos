@@ -14,3 +14,8 @@ def test_filter_dominos():
 	assert ((1,2),) == tuple(filter_dominos([(1,2),(3,4),(5,6)],1))
 	assert ((5,6),) == tuple(filter_dominos([(1,2),(3,4),(5,6)],6))
 	assert ((1,2),(2,4)) == tuple(filter_dominos([(1,2),(2,4),(5,6)],2))
+
+def test_board_parser():
+	assert ((6,), (1,)) == tuple(board_parser("6,1"))
+	assert ((6,), (1,-1)) == tuple(board_parser("6,1_"))
+	assert ((6,), (1,1)) == tuple(board_parser("6,11"))
