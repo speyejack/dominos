@@ -33,4 +33,4 @@ jobs:
         CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
       run: |
         pip install codecov
-        codecov -t
+        codecov -t $CODECOV_TOKEN
