@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/speyejack/dominos/branch/master/graph/badge.svg)](https://codecov.io/gh/speyejack/dominos) ![Build Status](https://github.com/speyejack/dominos/workflows/Dominos/badge.svg)
+![Build Status](https://github.com/speyejack/dominos/workflows/Dominos/badge.svg) [![codecov](https://codecov.io/gh/speyejack/dominos/branch/master/graph/badge.svg)](https://codecov.io/gh/speyejack/dominos) 
 
 # Dominos
 
