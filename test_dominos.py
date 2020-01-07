@@ -28,3 +28,9 @@ def test_pair_dominos():
 	assert (((6,1),(6,)),((1,6),(1,))) == tuple(pair_dominos(((6,1),),((6,),(1,))))
 	assert (((6,1),(6,)),((1,6),(1,))) == tuple(pair_dominos(((6,1),(2,4)),((6,),(1,))))
 	assert tuple() == tuple(pair_dominos(((6,1),),()))
+
+def test_score_board():
+	assert 1 == score_board([(1,)])
+	assert 9 == score_board([(1,),(3,),(5,)])
+	assert 6 == score_board([(3,3)])
+	assert 0 == score_board([(3,-1)])

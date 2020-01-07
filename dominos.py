@@ -56,4 +56,15 @@ def pair_dominos(hand, board):
 
 	return pairs
 
+def score_board(board):
+	def _score_domino(domino):
+		num = domino[0]
+		if len(domino) == 1:
+			return num
+		elif domino[1] == -1:
+			return 0
+		else:
+			return num * 2
+
+	return sum([_score_domino(domino) for domino in board])
 
