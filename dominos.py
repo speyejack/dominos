@@ -87,3 +87,16 @@ def score_pairs(pairs):
 			return domino[1] - domino[0] * 2
 
 	return tuple(_score_pair(pair) for pair in pairs)
+		
+## Calculates total score for the board and pairs
+#
+#  @param pairs Tuples of pairs to score
+#  @param board Board to score
+#  @return A tuples of pair and score
+def total_score(pairs,board):
+	board_score = score_board(board)
+	scores = [pair_score + board_score for pair_score in score_pairs(pairs)]
+	return tuple((dom[0],dom[1],scores[i]) for i,dom in enumerate(pairs))
+
+
+

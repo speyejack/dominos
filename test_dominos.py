@@ -41,3 +41,7 @@ def test_score_pairs():
 	assert (5,1)  == score_pairs([((1,6),(1,)), ((3,4),(3,))])
 	assert (6,)  == score_pairs([((1,6),(1,-1))])
 	assert (4,)  == score_pairs([((1,6),(1,1))])
+
+def test_total_score():
+	assert (((6,1),(6,),1),) == total_score([((6,1),(6,))], [(6,)])
+
