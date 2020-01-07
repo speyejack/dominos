@@ -44,17 +44,13 @@ def board_parser(board_str):
 #
 #  Calculates all pairs of hand and board that match
 def pair_dominos(hand, board):
+	hand += tuple([reverse_tuple(domino) for domino in hand])
 	pairs = []
 	for domino in hand:
 		filtered = filter_dominos(board, domino[0])
 		if filtered:
 			pairs += [(domino,move) for move in filtered]
 
-	for domino in tuple([reverse_tuple(domino) for domino in hand]):
-		filtered = filter_dominos(board, domino[0])
-		if filtered:
-			pairs += [(reverse_tuple(domino),move) for move in filtered]
-	
 	return pairs
 
 
