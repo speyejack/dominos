@@ -110,7 +110,7 @@ def pair_to_string(pairs):
 		elif match[1] == -1:
 			string = "{}/{} -> {}_ = {}".format(domino[0], domino[1], match[0], score)
 		else:
-			string = "{}/{} -> {} = {}".format(domino[0], domino[1], match, score)
+			string = "{}/{} -> {}/{} = {}".format(domino[0], domino[1], match[0], match[1], score)
 		return string
 	return "\n".join([_create_str(pair) for pair in pairs])
 

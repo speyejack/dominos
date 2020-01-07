@@ -48,7 +48,12 @@ def test_total_score():
 def test_pair_to_string():
 	assert "6/1 -> 6 = 1" == pair_to_string((((6,1),(6,),1),))
 	assert "6/5 -> 6 = 5\n5/3 -> 5 = 3" == pair_to_string((((6,5),(6,),5),((5,3),(5,),3)))
+	assert "6/1 -> 6_ = 7" == pair_to_string((((6,1),(6,-1),7),))
+	assert "6/1 -> 6/6 = 1" == pair_to_string((((6,1),(6,6),1),))
+
 
 def test_solve_dominos():
 	assert "6/1 -> 6 = 1" == solve_dominos("6/1","6")
 	assert "6/4 -> 6 = 9\n5/3 -> 5 = 9" == solve_dominos("6/4,5/3","6,5")
+	assert "6/1 -> 6_ = 1" == solve_dominos("6/1","6_")
+	assert "6/1 -> 6/6 = 1" == solve_dominos("6/1","66")
