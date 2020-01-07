@@ -56,6 +56,10 @@ def pair_dominos(hand, board):
 
 	return pairs
 
+## Totals the score on the board
+#
+#  @param board Board to score
+#  @return The boards current total
 def score_board(board):
 	def _score_domino(domino):
 		num = domino[0]
