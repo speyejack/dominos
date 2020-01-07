@@ -45,3 +45,7 @@ def test_score_pairs():
 def test_total_score():
 	assert (((6,1),(6,),1),) == total_score([((6,1),(6,))], [(6,)])
 
+def test_pair_to_string():
+	assert "6/1 -> 6 = 1" == pair_to_string((((6,1),(6,),1),))
+	assert "6/5 -> 6 = 5\n5/3 -> 5 = 3" == pair_to_string((((6,5),(6,),5),((5,3),(5,),3)))
+

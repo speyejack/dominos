@@ -98,5 +98,20 @@ def total_score(pairs,board):
 	scores = [pair_score + board_score for pair_score in score_pairs(pairs)]
 	return tuple((dom[0],dom[1],scores[i]) for i,dom in enumerate(pairs))
 
+## Creates a string representation of the pairs
+#
+#  @param pairs Tuples of scored pairs to convert to string
+#  @return A string representation of the pairs
+def pair_to_string(pairs):
+	def _create_str(pair):
+		domino,match,score = pair
+		if len(match) == 1:
+			string = "{}/{} -> {} = {}".format(domino[0], domino[1], match[0], score)
+		elif match[1] == -1:
+			string = "{}/{} -> {}_ = {}".format(domino[0], domino[1], match[0], score)
+		else:
+			string = "{}/{} -> {} = {}".format(domino[0], domino[1], match, score)
+		return string
+	return "\n".join([_create_str(pair) for pair in pairs])
 
 
