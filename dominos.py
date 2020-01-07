@@ -40,3 +40,21 @@ def board_parser(board_str):
 			
 	return tuple([_item_parse(item.strip()) for item in board_str.split(",")])
 
+## Pairs dominos in hand to board
+#
+#  Calculates all pairs of hand and board that match
+def pair_dominos(hand, board):
+	pairs = []
+	for domino in hand:
+		filtered = filter_dominos(board, domino[0])
+		if filtered:
+			pairs += [(domino,move) for move in filtered]
+
+	for domino in tuple([reverse_tuple(domino) for domino in hand]):
+		filtered = filter_dominos(board, domino[0])
+		if filtered:
+			pairs += [(reverse_tuple(domino),move) for move in filtered]
+	
+	return pairs
+
+

@@ -19,3 +19,12 @@ def test_board_parser():
 	assert ((6,), (1,)) == tuple(board_parser("6,1"))
 	assert ((6,), (1,-1)) == tuple(board_parser("6,1_"))
 	assert ((6,), (1,1)) == tuple(board_parser("6,11"))
+
+def test_pair_dominos():
+	assert (((6,1),(6,)),) == tuple(pair_dominos(((6,1),),((6,),)))
+	assert (((1,6),(6,)),) == tuple(pair_dominos(((1,6),),((6,),)))
+	assert (((6,1),(6,6)),) == tuple(pair_dominos(((6,1),),((6,6),)))
+	assert (((6,1),(6,-1)),) == tuple(pair_dominos(((6,1),),((6,-1),)))
+	assert (((6,1),(6,)),((6,1),(1,))) == tuple(pair_dominos(((6,1),),((6,),(1,))))
+	assert (((6,1),(6,)),((6,1),(1,))) == tuple(pair_dominos(((6,1),(2,4)),((6,),(1,))))
+	assert tuple() == tuple(pair_dominos(((6,1),),()))
