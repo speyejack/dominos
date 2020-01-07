@@ -72,3 +72,18 @@ def score_board(board):
 
 	return sum([_score_domino(domino) for domino in board])
 
+## Calculates the score of each pair
+#
+#  @param pairs Tuples of pairs to score
+#  @return A tuple of pairs and scores
+def score_pairs(pairs):
+	def _score_pair(pair):
+		domino,match = pair
+		if len(match) == 1:
+			return domino[1] - domino[0]
+		elif match[1] == -1:
+			return domino[1]
+		else:
+			return domino[1] - domino[0] * 2
+
+	return tuple(_score_pair(pair) for pair in pairs)
