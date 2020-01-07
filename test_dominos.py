@@ -49,3 +49,6 @@ def test_pair_to_string():
 	assert "6/1 -> 6 = 1" == pair_to_string((((6,1),(6,),1),))
 	assert "6/5 -> 6 = 5\n5/3 -> 5 = 3" == pair_to_string((((6,5),(6,),5),((5,3),(5,),3)))
 
+def test_solve_dominos():
+	assert "6/1 -> 6 = 1" == solve_dominos("6/1","6")
+	assert "6/4 -> 6 = 9\n5/3 -> 5 = 9" == solve_dominos("6/4,5/3","6,5")

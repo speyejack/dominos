@@ -114,4 +114,18 @@ def pair_to_string(pairs):
 		return string
 	return "\n".join([_create_str(pair) for pair in pairs])
 
+## Converts a string of a hand and board into a scored pairing
+#
+#  @param hand_str String representation of a hand
+#  @param board_str String representation of the board
+#  @return A string representation of all solved pairs
+def solve_dominos(hand_str, board_str):
+	hand = hand_parser(hand_str)
+	board = board_parser(board_str)
 
+	pairs = pair_dominos(hand, board)
+
+	score = total_score(pairs,board)
+
+	pair_string = pair_to_string(score)
+	return pair_string
